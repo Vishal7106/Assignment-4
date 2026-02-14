@@ -1,13 +1,8 @@
-/************************************
- * 1. EmailJS Init
- ************************************/
-(function () {
-    emailjs.init("7CscIZm-7t6Mfcj14"); // Public Key
-})();
 
-/************************************
- * Navigation UI
- ************************************/
+ 
+
+
+
 const navLinks = document.querySelectorAll('.nav-links a');
 
 navLinks.forEach(link => {
@@ -17,6 +12,9 @@ navLinks.forEach(link => {
     });
 });
 
+
+
+
 document.querySelectorAll('.logo img').forEach(logo => {
     logo.style.cursor = 'pointer';
     logo.addEventListener('click', () => {
@@ -24,57 +22,44 @@ document.querySelectorAll('.logo img').forEach(logo => {
     });
 });
 
-/************************************
- * Services & Cart
- ************************************/
-const services = [
-    { id: 1, name: "Dry Cleaning", price: 200, icon: "👕" },
-    { id: 2, name: "Wash & Fold", price: 100, icon: "🧺" },
-    { id: 3, name: "Ironing", price: 30, icon: "💨" },
-    { id: 4, name: "Stain Removal", price: 500, icon: "🍷" },
-    { id: 5, name: "Leather & Suede Cleaning", price: 999, icon: "👞" },
-    { id: 6, name: "Wedding Dress Cleaning", price: 2800, icon: "👗" }
-];
+
+
+
+
 
 let cart = [];
+function toggleService(button) {
+    const serviceItem = button.closest('.service-item');
+
+    const id = serviceItem.dataset.id;
+    const name = serviceItem.dataset.name;
+    const price = parseFloat(serviceItem.dataset.price);
+
+    const existingIndex = cart.findIndex(item => item.id === id);
+
+    if (existingIndex === -1) {
+        cart.push({ id, name, price });
+        button.innerText = "Remove ⊖";
+        button.classList.remove("btn-add");
+        button.classList.add("btn-remove");
+    } else {
+        cart.splice(existingIndex, 1);
+        button.innerText = "Add ⊕";
+        button.classList.remove("btn-remove");
+        button.classList.add("btn-add");
+    }
+
+    updateCartUI();
+    updateBookButtonState();
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderServices();
     updateCartUI();
     updateBookButtonState();
 });
 
-function renderServices() {
-    const list = document.getElementById('services-list');
-    list.innerHTML = services.map(s => {
-        const inCart = cart.some(i => i.id === s.id);
-        return `
-            <div class="service-item">
-                <div class="service-info">
-                    ${s.icon} ${s.name} • ₹${s.price}
-                </div>
-                ${inCart
-                ? `<button class="btn-remove" onclick="removeFromCart(${s.id})">Remove ⊖</button>`
-                : `<button class="btn-add" onclick="addToCart(${s.id})">Add ⊕</button>`
-            }
-            </div>
-        `;
-    }).join('');
-}
 
-function addToCart(id) {
-    cart.push(services.find(s => s.id === id));
-    updateCartUI();
-    renderServices();
-    updateBookButtonState();
-}
-
-function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
-    updateCartUI();
-    renderServices();
-    updateBookButtonState();
-}
 
 function updateCartUI() {
     const body = document.getElementById('cart-body');
@@ -98,9 +83,11 @@ function updateBookButtonState() {
     document.querySelector('.btn-book').disabled = cart.length === 0;
 }
 
-/************************************
- *  Booking Form + EmailJS
- ************************************/
+(function () {
+    emailjs.init("7CscIZm-7t6Mfcj14"); 
+})();
+
+
 document.getElementById('booking-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -130,15 +117,14 @@ document.getElementById('booking-form').addEventListener('submit', function (e) 
 
     emailjs
         .send(
-            "service_m0s88ur",       // Service ID
-            "service_Email",          // Template ID
+            "service_m0s88ur",       
+            "service_Email",          
             templateParams
         )
         .then(() => {
             successMsg.classList.remove('hidden');
             cart = [];
             updateCartUI();
-            renderServices();
             updateBookButtonState();
             e.target.reset();
         })
@@ -158,9 +144,10 @@ function scrollToBooking() {
     document.getElementById('booking').scrollIntoView();
 }
 
-/************************************
- * Footer / Scroll / Newsletter
- ************************************/
+
+
+
+
 const scrollBtn = document.getElementById('scroll-top');
 
 window.addEventListener('scroll', () => {
