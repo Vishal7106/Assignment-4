@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expert Laundry Services</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
 </head>
 
 <body>
 
     <nav class="navbar">
         <div class="logo">
-            <img src="Gemini_Generated_Image_55hfc855hfc855hf.png" alt="Laundry Service Logo">
+            <img src="css/Gemini_Generated_Image_55hfc855hfc855hf.png" alt="Laundry Service Logo">
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
@@ -22,7 +21,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
-        <div class="user-badge">Username</div>
+        <div class="user-name">Username</div>
     </nav>
 
     <header class="hero">
@@ -30,12 +29,12 @@
             <h1>Revitalize Your Clothes with <span>Expert Laundry Services!</span></h1>
             <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup and
                 rediscover the freshness of your clothes today!</p>
-            <button class="btn-hero" onclick="scrollToBooking()">
+            <button  class="btn-hero" onclick="scrollToBooking()">
                 <span class="icon">🏪</span> Book a service today!
             </button>
         </div>
         <div class="hero-image">
-            <img src="washing.jpg" alt="3D Washing Machine">
+            <img src="css/washing.jpg" alt="3D Washing Machine">
         </div>
     </header>
 
@@ -60,10 +59,43 @@
     <main id="booking" class="booking-container">
         <div class="services-card">
             <h2>Our Services</h2>
+            
             <p class="subtitle">Click On The Add To Cart Button To Add The Services To Your Cart</p>
             <hr>
             <div id="services-list">
-            </div>
+
+    <div class="service-item" data-id="1" data-name="Dry Cleaning" data-price="200">
+        <div class="service-info">👕 Dry Cleaning • ₹200</div>
+        <button class="btn-add" onclick="toggleService(this)">Add ⊕</button>
+    </div>
+
+    <div class="service-item" data-id="2" data-name="Wash & Fold" data-price="100">
+        <div class="service-info">🧺 Wash & Fold • ₹100</div>
+        <button class="btn-add" onclick="toggleService(this)">Add ⊕</button>
+    </div>
+
+    <div class="service-item" data-id="3" data-name="Ironing" data-price="30">
+        <div class="service-info">💨 Ironing • ₹30</div>
+        <button class="btn-add" onclick="toggleService(this)">Add ⊕</button>
+    </div>
+
+    <div class="service-item" data-id="4" data-name="Stain Removal" data-price="500">
+        <div class="service-info">🍷 Stain Removal • ₹500</div>
+        <button class="btn-add" onclick="toggleService(this)">Add ⊕</button>
+    </div>
+
+    <div class="service-item" data-id="5" data-name="Leather & Suede Cleaning" data-price="999">
+        <div class="service-info">👞 Leather & Suede Cleaning • ₹999</div>
+        <button class="btn-add" onclick="toggleService(this)">Add ⊕</button>
+    </div>
+
+    <div class="service-item" data-id="6" data-name="Wedding Dress Cleaning" data-price="2800">
+        <div class="service-info">👗 Wedding Dress Cleaning • ₹2800</div>
+        <button class="btn-add" onclick="toggleService(this)">Add ⊕</button>
+    </div>
+
+</div>
+
             <p class="info-footer">ⓘ Add the items to the cart and book now</p>
         </div>
 
@@ -71,13 +103,13 @@
             <div class="cart-card">
                 <h3>Added Items</h3>
                 <table class="cart-table">
-                    <thead>
+                    <th>
                         <tr>
                             <th>S.No</th>
                             <th>Service Name</th>
                             <th>Price</th>
                         </tr>
-                    </thead>
+                    </th>
                     <tbody id="cart-body">
                     </tbody>
                 </table>
@@ -95,11 +127,11 @@
                     <div class="form-row">
                         <div class="input-group">
                             <label>Email ID</label>
-                            <input type="email" id="email" placeholder="mailid@gmail.com" required>
+                            <input type="email" id="email" placeholder="Emailid@gmail.com" required>
                         </div>
                         <div class="input-group">
                             <label>Phone Number</label>
-                            <input type="tel" id="phone" min="10" placeholder="+91**********" required>
+                            <input type="tel" id="phone" min="10" placeholder="+91 9321632***" required>
                         </div>
                     </div>
                     <button type="submit" class="btn-book" disabled>Book now</button>
@@ -112,9 +144,9 @@
                         ⚠️ Email has been sent successfully
                     </p>
 
-                    <!-- <button type="submit" class="btn-book">Book now</button> -->
+               
                 </form>
-                <!-- <p id="success-msg" class="hidden">Thank you For Booking the Service We will get back to you soon!</p> -->
+                
             </div>
         </div>
     </main>
@@ -122,23 +154,23 @@
 
     <section class="features">
         <div class="feature-item">
-            <img src="icon1.png" alt="Premium Services">
+            <img src="css//icon1.png" alt="Premium Services">
             <h3>Premium Services</h3>
             <p>Elevate your wardrobe with our meticulous dry cleaning, ensuring garments look and feel as good as new.
             </p>
         </div>
         <div class="feature-item">
-            <img src="icon2.png" alt="Quick Support">
+            <img src="css/icon2.png" alt="Quick Support">
             <h3>Quick Support</h3>
             <p>We're committed to providing prompt solutions to ensure your experience is smooth and worry-free.</p>
         </div>
         <div class="feature-item">
-            <img src="icon3.png" alt="Hassle Free Delivery">
+            <img src="css/icon3.png" alt="Hassle Free Delivery">
             <h3>Hassle Free Delivery</h3>
             <p>Enjoy seamless service with our convenient pickup and delivery options, tailored to your schedule.</p>
         </div>
         <div class="feature-item">
-            <img src="icon4.png" alt="Affordable Prices">
+            <img src="css/icon4.png" alt="Affordable Prices">
             <h3>Affordable Prices</h3>
             <p>Experience exceptional care without breaking the bank — our affordable prices make laundry day
                 stress-free.</p>
@@ -162,7 +194,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <div class="logo">Logo</div>
+                <div class="logo"><img  src="css/Gemini_Generated_Image_55hfc855hfc855hf.png" alt=""></div>
                 <p class="about-text">About us<br>Lorem Ipsum Dolor Sit Amet Consectetur. Sed At Congue.</p>
             </div>
             <div class="footer-links">
@@ -186,24 +218,26 @@
                 <h4>Follow Us</h4>
                 <div class="social-icons">
                     <a href="#" aria-label="Instagram">
-                        <img src="insta.png" alt="Instagram">
+                        <img src="css/insta.png" alt="Instagram">
                     </a>
                     <a href="#" aria-label="Facebook">
-                        <img src="facebook.png" alt="Facebook">
+                        <img src="css/facebook.png" alt="Facebook">
                     </a>
                     <a href="#" aria-label="Twitter">
-                        <img src="twi.png" alt="Twitter X">
+                        <img src="css/twi.png" alt="Twitter X">
                     </a>
                     <a href="#" aria-label="Youtube">
-                        <img src="youtube.png" alt="Youtube">
+                        <img src="css/youtube.png" alt="Youtube">
                     </a>
                 </div>
             </div>
             <button id="scroll-top" title="Go to top">↑</button>
         </div>
     </footer>
+    
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="LOG.JS"></script>
 </body>
-
 
 </html>
