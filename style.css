@@ -1,10 +1,3 @@
-:root {
-    --primary-blue: #4dafff;
-    --dark-text: #2d3436;
-    --light-gray: #f8f9fb;
-    --border-color: #eee;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +13,6 @@ body {
     background: white;
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -29,10 +21,18 @@ body {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #444;
+    width: 60px;
+    height: 60px;
+    border-radius: 30%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(18, 105, 176, 0.4);
+
 }
+
+
 
 .nav-links {
     display: flex;
@@ -46,15 +46,15 @@ body {
     font-weight: 500;
 }
 
-.user-badge {
+.user-name {
     background: #eef7ff;
-    color: var(--primary-blue);
+    color:#4dafff;
     padding: 8px 20px;
     border-radius: 8px;
     border: 1px solid #ddecff;
 }
 
-/* Hero */
+
 .hero {
     display: flex;
     padding: 60px 80px;
@@ -69,13 +69,13 @@ body {
 
 .hero-content h1 {
     font-size: 3.5rem;
-    color: var(--dark-text);
+    color:#2d3436;
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .hero-content h1 span {
-    color: var(--primary-blue);
+    color:#4dafff;
 }
 
 .hero-content p {
@@ -86,7 +86,7 @@ body {
 }
 
 .btn-hero {
-    background: var(--primary-blue);
+    background: #4dafff;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -106,9 +106,8 @@ body {
     max-width: 450px;
 }
 
-/* Achievements */
 .achievements {
-    background: var(--primary-blue);
+    background:#4dafff;
     color: white;
     padding: 40px 80px;
     display: flex;
@@ -127,12 +126,12 @@ body {
     font-size: 1.8rem;
 }
 
-/* Booking Grid */
+
 .booking-container {
     display: flex;
     gap: 30px;
     padding: 60px 80px;
-    background: var(--light-gray);
+    background:#f8f9fb;
 }
 
 .services-card,
@@ -155,7 +154,7 @@ body {
     gap: 20px;
 }
 
-/* Dynamic List Items */
+
 .service-item {
     display: flex;
     justify-content: space-between;
@@ -189,7 +188,7 @@ body {
     color: #e74c3c;
 }
 
-/* Cart Table */
+
 .cart-table {
     width: 100%;
     border-collapse: collapse;
@@ -201,7 +200,7 @@ body {
     text-align: left;
     padding: 10px;
     color: #888;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #eee;
 }
 
 .cart-table td {
@@ -214,16 +213,16 @@ body {
     justify-content: space-between;
     margin-top: 20px;
     font-weight: bold;
-    border-top: 2px solid var(--light-gray);
+    border-top: 2px solid #f8f9fb;
     padding-top: 15px;
 }
 
-/* Form */
+
 .form-card input {
     width: 100%;
     padding: 12px;
     margin: 8px 0 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eee;
     border-radius: 8px;
     background: #fdfdfd;
 }
@@ -241,11 +240,11 @@ body {
 }
 
 .form-msg.error {
-    color: #e74c3c; /* Red */
+    color: #e74c3c; 
 }
 
 .form-msg.success {
-    color: #2ecc71; /* Green */
+    color: #2ecc71; 
 }
 
 .hidden {
@@ -276,8 +275,8 @@ body {
 
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+
+@media (max-width: 1280px) {
 
     .hero,
     .booking-container,
@@ -297,31 +296,28 @@ body {
     }
 }
 
-/* Logo Styling */
 .logo img {
-    height: 50px;
-    /* Adjust height to fit your navbar */
-    width: auto;
-    /* Maintains aspect ratio */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
     display: block;
     transition: transform 0.3s ease;
 }
 
-/* Add a subtle hover effect to the logo */
-.logo img:hover {
-    transform: scale(1.05);
+.logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
 }
 
-/* Footer specific logo sizing if needed */
+
 .footer-brand .logo img {
     height: 60px;
     margin-bottom: 15px;
 
 }
 
-
-
-/* Navigation Link Hover Effect */
 .nav-links li {
     position: relative;
     padding: 5px 0;
@@ -335,7 +331,6 @@ body {
     position: relative;
 }
 
-/* Create the line using a pseudo-element */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -344,21 +339,21 @@ body {
     bottom: -5px;
     left: 0;
     background-color: #4dafff;
-    /* Matches your brand blue from the hero section */
+    
     transition: width 0.3s ease;
 }
 
-/* Expand the line on hover */
+
 .nav-links a:hover::after {
     width: 100%;
 }
 
-/* Optional: Change text color on hover */
+
+
 .nav-links a:hover {
     color: #4dafff;
 }
 
-/* Features Section */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -383,10 +378,10 @@ body {
     line-height: 1.6;
 }
 
-/* Newsletter Section */
+
 .newsletter {
     background-color: #4dafff;
-    /* Matching the primary blue from achievements */
+    
     padding: 60px 8%;
     color: white;
 }
@@ -434,7 +429,7 @@ body {
     cursor: pointer;
 }
 
-/* Footer Section */
+
 .footer {
     padding: 80px 8% 40px;
     background: #fdfdfd;
@@ -481,8 +476,8 @@ body {
     flex-wrap: wrap;
 }
 
-/* Responsive Tablet/Mobile */
-@media (max-width: 992px) {
+
+@media (max-width: 1024px) {
     .newsletter-content {
         flex-direction: column;
         text-align: center;
@@ -498,7 +493,7 @@ body {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .newsletter-form {
         flex-direction: column;
     }
@@ -513,7 +508,7 @@ body {
 }
 
 
-/* Scroll to Top Button */
+
 #scroll-top {
     position: fixed;
     bottom: 30px;
@@ -526,7 +521,7 @@ body {
     border-radius: 50%;
     cursor: pointer;
     display: none;
-    /* Hidden by default */
+    
     font-size: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -538,7 +533,7 @@ body {
 }
 
 
-/* Social Icon Styling */
+
 
 .social-icons {
     display: flex;
@@ -559,25 +554,22 @@ body {
     overflow: hidden;
 }
 
-/* Removes all color from the images */
+
 .social-icons a img {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    filter: grayscale(100%) brightness(0);
-    /* Makes icons pure black */
+    filter: grayscale(100%) brightness(0); 
     opacity: 0.7;
-    /* Optional: makes them look dark gray */
+
 }
 
 .social-icons a:hover {
     background-color: #4dafff;
-    /* Brand Blue */
     border-color: #4dafff;
     transform: translateY(-3px);
 }
 
-/* Makes icons white when hovering over the blue circle */
 .social-icons a:hover img {
     filter: brightness(0) invert(1);
     opacity: 1;
