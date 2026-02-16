@@ -1,5 +1,5 @@
 
- 
+
 
 
 
@@ -28,7 +28,12 @@ document.querySelectorAll('.logo img').forEach(logo => {
 
 
 let cart = [];
+const successMsg = document.getElementById('success-msg');
+
+successMsg.classList.add('hidden');
+
 function toggleService(button) {
+
     const serviceItem = button.closest('.service-item');
 
     const id = serviceItem.dataset.id;
@@ -84,7 +89,7 @@ function updateBookButtonState() {
 }
 
 (function () {
-    emailjs.init("7CscIZm-7t6Mfcj14"); 
+    emailjs.init("7CscIZm-7t6Mfcj14");
 })();
 
 
@@ -117,17 +122,31 @@ document.getElementById('booking-form').addEventListener('submit', function (e) 
 
     emailjs
         .send(
-            "service_m0s88ur",       
-            "service_Email",          
+            "service_m0s88ur",
+            "service_Email",
             templateParams
         )
         .then(() => {
             successMsg.classList.remove('hidden');
+
+           
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+
             cart = [];
             updateCartUI();
             updateBookButtonState();
             e.target.reset();
+
+            document.querySelectorAll('.service-item button').forEach(btn => {
+                btn.innerText = "Add ⊕";
+                btn.classList.remove("btn-remove");
+                btn.classList.add("btn-add");
+            });
         })
+
+   
         .catch(err => {
             errorMsg.innerText = err.text || "Email failed";
             errorMsg.classList.remove('hidden');
